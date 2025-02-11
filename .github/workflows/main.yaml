@@ -27,8 +27,12 @@ jobs:
             {
               "channel_id": "${{ secrets.SLACK_CHANNEL_ID }}",
               "initial_comment": "the results are in!",
-              "file": "./version.txt",
-              "filename": "version.txt"
+              "file_uploads": [
+                {
+                  "file": "./version.txt",
+                  "filename": "version.txt"
+                }
+              ]
             }
       - name: Post text to a Slack channel
         uses: slackapi/slack-github-action@v2.0.0
