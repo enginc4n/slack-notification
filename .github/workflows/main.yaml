@@ -39,7 +39,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Version Info: _1_"
+                    "text": "Version Info: 1"
                   }
                 },
                 {
