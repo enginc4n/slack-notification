@@ -39,18 +39,11 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Version Info: 1"
+                    "text": "_Version Info:_"
                   }
                 },
                 {
                   "type": "divider"
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "```${{ env.VERSION_CONTENT }}```"
-                  }
                 }
               ]
             }
