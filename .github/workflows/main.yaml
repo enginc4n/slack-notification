@@ -39,7 +39,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "_Version Info: `${{ env.VERSION_CONTENT }}`_"
+                    "text": "Version Info: _${{ env.VERSION_CONTENT }}_"
                   }
                 },
                 {
