@@ -30,8 +30,15 @@ jobs:
                   "type": "header",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "New version is released for <${{ github.server_url }}/${{ github.repository }}|${{ github.repository }}>!"
+                    "text": "New version is released for ${{github.repository}}!"
                   }
+                },
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": " > Version: 1.1.1."
+                    }
                 },
                 {
                     "type": "section",
