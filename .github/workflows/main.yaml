@@ -29,15 +29,15 @@ jobs:
                 {
                   "type": "header",
                   "text": {
-                    "type": "plain_text",
+                    "type": "mrkdwn",
                     "text": "New version is released for <${{ github.server_url }}/${{ github.repository }}|${{ github.repository }}>!"
                   }
                 },
                 {
                     "type": "section",
                     "text": {
-                        "type": "plain_text",
-                        "text": "Version: 1.1.1."
+                        "type": "mrkdwn",
+                        "text": " > Version: 1.1.1."
                     }
                 },
                 {
@@ -47,7 +47,10 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "```${{ env.VERSION_CONTENT }}```"
+                    "text": "```
+                    Release Notes:
+                    ${{ env.VERSION_CONTENT }}
+                    ```"
                   }
                 }
               ]
