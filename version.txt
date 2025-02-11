@@ -1,1 +1,1 @@
-Bu bir slack notification için txt dosyasıdır.
+Bu bir slack notification için txt dosyasıdır.a
