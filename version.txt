@@ -1,1 +1,2 @@
-Bu bir slack notification için txt dosyasıdır.a
+Release Notes:
+Bu bir slack notification için txt dosyasıdır

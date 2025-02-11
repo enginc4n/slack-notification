@@ -25,39 +25,23 @@ jobs:
           payload: |
             {
               "channel": "${{ secrets.SLACK_CHANNEL_ID }}",
+              "text": "New version is released for ${{ github.repository }}!",
               "blocks": [
                 {
                   "type": "header",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "New version is released for ${{github.repository}}!"
+                    "text": "New version is released for <${{ github.server_url }}/${{ github.repository }}|${{ github.repository }}>!"
                   }
                 },
                 {
-                    "type": "section",
-                    "text": {
-                        "type": "mrkdwn",
-                        "text": " > Version: 1.1.1."
-                    }
-                },
-                {
-                    "type": "section",
-                    "text": {
-                        "type": "mrkdwn",
-                        "text": " > Version: 1.1.1."
-                    }
-                },
-                {
-                    "type": "divider"
+                  "type": "divider"
                 },
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "```
-                    Release Notes:
-                    ${{ env.VERSION_CONTENT }}
-                    ```"
+                    "text": "```${{ env.VERSION_CONTENT }}```"
                   }
                 }
               ]
