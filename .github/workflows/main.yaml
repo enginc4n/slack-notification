@@ -27,14 +27,21 @@ jobs:
               "channel": "${{ secrets.SLACK_CHANNEL_ID }}",
               "blocks": [
                 {
-                  "type": "section",
+                  "type": "header",
                   "text": {
-                    "type": "mrkdwn",
-                    "text": "**New version is released for ${{ github.repository }}!**"
+                    "type": "plain_text",
+                    "text": "New version is released for <${{ github.server_url }}/${{ github.repository }}|${{ github.repository }}>!"
                   }
                 },
                 {
-                  "type": "divider"
+                    "type": "section",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "Version: 1.1.1."
+                    }
+                },
+                {
+                    "type": "divider"
                 },
                 {
                   "type": "section",
