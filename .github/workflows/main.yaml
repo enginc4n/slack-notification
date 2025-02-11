@@ -20,7 +20,7 @@ jobs:
           payload: |
             {
               "channel": "${{ secrets.SLACK_CHANNEL_ID }}",
-              "text": "hello world <!channel>!"
+              "text": "hello world <!channel>!",
               "blocks": [
                 {
                   "type": "section",
