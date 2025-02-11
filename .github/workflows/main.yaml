@@ -12,28 +12,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Create a file
-        run: ls -l
-
-      - name: Share a file to that channel
+      - name: Post text to a Slack channel
         uses: slackapi/slack-github-action@v2.0.0
         with:
-          method: files.uploadV2
+          method: chat.postMessage
           token: ${{ secrets.SLACK_BOT_TOKEN }}
           payload: |
             {
-              "channel_id": "${{ secrets.SLACK_CHANNEL_ID }}",
-              "initial_comment": "the results are in!",
-              "file": "${{ github.workspace }}/version.txt",
-              "filename": "version.txt"
+              "channel": "${{ secrets.SLACK_CHANNEL_ID }}",
+              "text": "hello world <!channel>!"
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Hello, <!channel>!"
+                  }
+                }
+              ]
             }
-    #   - name: Post text to a Slack channel
-    #     uses: slackapi/slack-github-action@v2.0.0
-    #     with:
-    #       method: chat.postMessage
-    #       token: ${{ secrets.SLACK_BOT_TOKEN }}
-    #       payload: |
-    #         {
-    #           "channel": "${{ secrets.SLACK_CHANNEL_ID }}",
-    #           "text": "hello world <!channel>!"
-    #         }
