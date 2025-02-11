@@ -1,0 +1,35 @@
+name: Slack Notification
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  CHANNEL: "test"
+
+jobs:
+  notfiy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Share a file to that channel
+        uses: slackapi/slack-github-action@v2.0.0
+        with:
+          method: files.uploadV2
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          payload: |
+          channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+          initial_comment: "the results are in!"
+          file: "./version.txt"
+          filename: "results-${{ github.sha }}.out"
+      - name: Post text to a Slack channel
+        uses: slackapi/slack-github-action@v2.0.0
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          payload: |
+          channel: ${{ secrets.SLACK_CHANNEL_ID }}
+          text: "hello world <@channel>!"
