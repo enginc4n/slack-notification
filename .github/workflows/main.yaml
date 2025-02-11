@@ -29,7 +29,7 @@ jobs:
               "initial_comment": "the results are in!",
               "file_uploads": [
                 {
-                  "file": "./version.txt",
+                  "file": "$(pwd)/version.txt",
                   "filename": "version.txt"
                 }
               ]
