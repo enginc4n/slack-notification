@@ -9,7 +9,7 @@ env:
   CHANNEL: "test"
 
 jobs:
-  notfiy:
+  notify:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,15 +21,19 @@ jobs:
           method: files.uploadV2
           token: ${{ secrets.SLACK_BOT_TOKEN }}
           payload: |
-          channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-          initial_comment: "the results are in!"
-          file: "./version.txt"
-          filename: "results-${{ github.sha }}.out"
+            {
+              "channel_id": "${{ secrets.SLACK_CHANNEL_ID }}",
+              "initial_comment": "the results are in!",
+              "file": "./version.txt",
+              "filename": "results-${{ github.sha }}.out"
+            }
       - name: Post text to a Slack channel
         uses: slackapi/slack-github-action@v2.0.0
         with:
           method: chat.postMessage
           token: ${{ secrets.SLACK_BOT_TOKEN }}
           payload: |
-          channel: ${{ secrets.SLACK_CHANNEL_ID }}
-          text: "hello world <@channel>!"
+            {
+              "channel": "${{ secrets.SLACK_CHANNEL_ID }}",
+              "text": "hello world <@channel>!"
+            }
