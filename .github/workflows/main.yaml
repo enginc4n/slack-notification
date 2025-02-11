@@ -20,12 +20,16 @@ jobs:
         with:
           method: files.uploadV2
           token: ${{ secrets.SLACK_BOT_TOKEN }}
-          file: $(pwd)/version.txt
-          filename: version.txt
           payload: |
             {
               "channel_id": "${{ secrets.SLACK_CHANNEL_ID }}",
-              "initial_comment": "the results are in!"
+              "initial_comment": "the results are in!",
+              "file_uploads": [
+                {
+                  "file": "${{ github.workspace }}/version.txt",
+                  "filename": "version.txt"
+                }
+              ]
             }
       - name: Post text to a Slack channel
         uses: slackapi/slack-github-action@v2.0.0
