@@ -39,7 +39,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Version Info: _${{ env.VERSION_CONTENT }}_"
+                    "text": "Version Info: _1_"
                   }
                 },
                 {
@@ -49,7 +49,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "```aaa```"
+                    "text": "```${{ env.VERSION_CONTENT }}```"
                   }
                 }
               ]
