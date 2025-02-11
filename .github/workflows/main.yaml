@@ -15,7 +15,8 @@ jobs:
       - name: Read version file
         id: read_version
         run: |
-          echo "VERSION_CONTENT=$(cat version.txt)" >> $GITHUB_ENV
+          VERSION_CONTENT=$(cat version.txt | jq -R -s '.')
+          echo "VERSION_CONTENT=$VERSION_CONTENT" >> $GITHUB_ENV
 
       - name: Post text to a Slack channel
         uses: slackapi/slack-github-action@v2.0.0
@@ -30,8 +31,15 @@ jobs:
                 {
                   "type": "header",
                   "text": {
-                    "type": "mrkdwn",
+                    "type": "plain_text",
                     "text": "New version is released for <${{ github.server_url }}/${{ github.repository }}|${{ github.repository }}>!"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "_Version Info: `${{ env.VERSION_CONTENT }}`_"
                   }
                 },
                 {
