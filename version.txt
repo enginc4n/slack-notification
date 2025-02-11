@@ -1,2 +1,4 @@
+```
 Release Notes:
 Bu bir slack notification için txt dosyasıdır
+```
