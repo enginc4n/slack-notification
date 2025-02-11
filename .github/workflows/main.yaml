@@ -15,7 +15,7 @@ jobs:
       - name: Read version file
         id: read_version
         run: |
-          VERSION_CONTENT=$(cat version.txt | jq -R -s '.')
+          VERSION_CONTENT=$(jq -Rs '.' < version.txt)
           echo "VERSION_CONTENT=$VERSION_CONTENT" >> $GITHUB_ENV
 
       - name: Post text to a Slack channel
@@ -55,7 +55,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "```11123123```"
+                    "text": "```${{ env.VERSION_CONTENT }}```"
                   }
                 }
               ]
